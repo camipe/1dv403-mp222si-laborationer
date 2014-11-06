@@ -7,7 +7,11 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+		
+		str = str.replace(/[a-z]/g, function s(m){
+    			return m.toUpperCase();
+				});
+
 		return str;
 
 
