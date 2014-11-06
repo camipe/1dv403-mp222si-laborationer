@@ -2,7 +2,11 @@
 
 window.onload = function(){
 
-	var secret = 50; // Detta tal behöver bytas ut mot ett slumpat tal.
+	// Funktion som genererar ett slumpat nummer mellan två värden
+	function randomizeNumber(min, max) {
+		return Math.floor( Math.random() * (max-min)+1 )+min;
+	}
+	var secret = randomizeSecret(1, 100);
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var guess = function(number){
@@ -10,7 +14,7 @@ window.onload = function(){
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 
 		// Plats för förändring.
-		return [false, "Grattis du vann! Det hemliga talet var X och du behövde Y gissningar för att hitta det."]
+		return [false, "Det hemliga talet är: " + secret];
 
 		// Returnera exempelvis:
 		// [true, "Grattis du vann! Det hemliga talet var X och du behövde Y gissningar för att hitta det."]
