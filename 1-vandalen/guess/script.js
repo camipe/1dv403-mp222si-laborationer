@@ -25,7 +25,7 @@ window.onload = function(){
 				return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + guessCount + " gissningar för att hitta det."];
 			};
 		} else {
-			return [false, "Talet är utanför intervallet 1 - 100"];
+			return [false, "Talet är ett heltal i intervallet 1 - 100"];
 		};
 
 		// Returnera exempelvis:
