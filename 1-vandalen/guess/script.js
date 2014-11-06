@@ -6,15 +6,24 @@ window.onload = function(){
 	function randomizeNumber(min, max) {
 		return Math.floor( Math.random() * (max-min)+1 )+min;
 	}
-	var secret = randomizeSecret(1, 100);
+	var secret = randomizeNumber(1, 100);
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var guess = function(number){
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 
-		// Plats för förändring.
-		return [false, "Det hemliga talet är: " + secret];
+		if (number >= 1 && number <= 100) {
+			if (number < secret) {
+				return [false, "Det hemliga talet är högre!"];
+			} else if (number > secret) {
+				[false, "Det hemliga talet är lägre!"];
+			} else {
+				return [true, "Grattis du vann! Det hemliga talet var X och du behövde Y gissningar för att hitta det."];
+			};
+		} else {
+			[false, "Talet är utanför intervallet 0 - 100"];
+		};
 
 		// Returnera exempelvis:
 		// [true, "Grattis du vann! Det hemliga talet var X och du behövde Y gissningar för att hitta det."]
