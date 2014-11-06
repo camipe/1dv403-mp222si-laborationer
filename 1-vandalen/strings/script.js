@@ -8,9 +8,20 @@ window.onload = function(){
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 		
-		str = str.replace(/[a-z]/g, function s(m){
-    			return m.toUpperCase();
-				});
+		// Funktion som tar en regular expression, en sträng och en styling.
+		// Styling kan vara 0, 1 eller ett regular expresseio
+		var transform = function (regEx, str, styling) {
+			return str.replace(regEx, function transformTo(findings, styling){
+    			if (styling === 0) {
+    				return findings.toUpperCase();
+    			} else if (styling === 1) {
+    				return findings.toLowerCase();
+    			}else {return styling};
+			});
+		};
+
+		str = transform(/[a-zåäö]+/g, str, 0);
+		str = transform(/[A-ZÅÄÖ]+/g, str, "#");
 
 		return str;
 
