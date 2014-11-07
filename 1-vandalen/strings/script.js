@@ -10,18 +10,13 @@ window.onload = function(){
 		
 		// Funktion som tar en regular expression, en sträng och en styling.
 		// Styling kan vara 0, 1 eller ett regular expresseio
-		var transform = function (regEx, str, styling) {
-			return str.replace(regEx, function transformTo(findings, styling){
-    			if (styling === 0) {
-    				return findings.toUpperCase();
-    			} else if (styling === 1) {
-    				return findings.toLowerCase();
-    			}else {return styling};
-			});
-		};
+		for (var i = str.length - 1; i >= 0; i--) {
+			
 
-		str = transform(/[a-zåäö]+/g, str, 0);
-		str = transform(/[A-ZÅÄÖ]+/g, str, "#");
+			if (str[i].isLowerCase()) {
+				str[i] = str[i].toUpperCase();
+			};
+		};
 
 		return str;
 
