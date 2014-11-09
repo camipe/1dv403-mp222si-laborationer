@@ -11,7 +11,7 @@ window.onload = function(){
 		// Funktion som tar en regular expression, en sträng och en styling.
 		// Styling kan vara 0, 1 eller ett regular expresseio
 
-		var newStr;
+		var newStr = "";
 
 		for (var i = 0 ; i < str.length; i++) {
 			var loopChar = str[i];
@@ -20,6 +20,9 @@ window.onload = function(){
 			} else if (loopChar === loopChar.toUpperCase()) {
 				newStr = newStr + loopChar.toLowerCase();
 			};
+			// if (loopChar === "a" || "A") {
+			// 	newStr = newStr + "#";
+			// };
 		};
 
 		return newStr;
