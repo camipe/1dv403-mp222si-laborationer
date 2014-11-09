@@ -4,21 +4,25 @@ window.onload = function(){
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.		
+		// Plats för förändring.
 		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-		
+		// Vid fel, kasta ett undantag med ett meddelande till användaren.
+
 		// Funktion som tar en regular expression, en sträng och en styling.
 		// Styling kan vara 0, 1 eller ett regular expresseio
-		for (var i = str.length - 1; i >= 0; i--) {
-			
 
-			if (str[i].isLowerCase()) {
-				str[i] = str[i].toUpperCase();
+		var newStr;
+
+		for (var i = 0 ; i < str.length; i++) {
+			var loopChar = str[i];
+			if (loopChar === loopChar.toLowerCase()) {
+				newStr = newStr + loopChar.toUpperCase();
+			} else if (loopChar === loopChar.toUpperCase()) {
+				newStr = newStr + loopChar.toLowerCase();
 			};
 		};
 
-		return str;
+		return newStr;
 
 
 
@@ -41,12 +45,12 @@ window.onload = function(){
 
 		try {
 			var answer = convertString(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
-			p.innerHTML = answer;		// Skriver ut texten från arrayen som skapats i funktionen.	
+			p.innerHTML = answer;		// Skriver ut texten från arrayen som skapats i funktionen.
 		} catch (error){
 			p.classList.add( "error"); // Växla CSS-klass, IE10+
 			p.innerHTML = error.message;
 		}
-	
+
 	});
 
 
