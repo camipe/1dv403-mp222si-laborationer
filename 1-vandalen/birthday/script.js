@@ -2,12 +2,14 @@
 
 window.onload = function(){
 
-	
+
 	var birthday = function(date){
-		
 
-
-			// Din kod här.
+		// Check if date is in a valid format
+		var dateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/; //Regex for date format YYYY-MM-DD
+		if (!dateFormat.test(date)) {
+			throw new Error("Fel! Ange ett datum i formatet ÅÅÅÅ-MM-DD.")
+		};
 
 
 
@@ -44,7 +46,7 @@ window.onload = function(){
 			p.classList.add( "error"); // Växla CSS-klass, IE10+
 			p.innerHTML = error.message;
 		}
-	
+
 	});
 
 
