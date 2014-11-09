@@ -4,16 +4,14 @@ window.onload = function(){
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.
-		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren.
 
-		// Funktion som tar en regular expression, en sträng och en styling.
-		// Styling kan vara 0, 1 eller ett regular expresseio
-
+		// Declaring variable for the converted string
 		var newStr = "";
 
+		//Checking if string is empty, throwing error if so
 		if (str != "") {
+			// Looping through each character and checking if it's upper/lower case
+			// and changing it to the opposite case
 			for (var i = 0 ; i < str.length; i++) {
 				var loopChar = str[i];
 				if (loopChar === loopChar.toLowerCase()) {
@@ -21,9 +19,9 @@ window.onload = function(){
 				} else if (loopChar === loopChar.toUpperCase()) {
 					newStr = newStr + loopChar.toLowerCase();
 				};
-				newStr = newStr.replace( /[Aa]/g, "#" );
+				newStr = newStr.replace( /[Aa]/g, "#" ); // Replacing all A's and a's with #
 			};
-			return newStr;
+			return newStr; // Returning the new converted string
 		} else {
 			throw new Error("Skriv in en giltig textsträng.");
 		};
