@@ -13,21 +13,20 @@ window.onload = function(){
 
 		var newStr = "";
 
-		for (var i = 0 ; i < str.length; i++) {
-			var loopChar = str[i];
-			if (loopChar === loopChar.toLowerCase()) {
-				newStr = newStr + loopChar.toUpperCase();
-			} else if (loopChar === loopChar.toUpperCase()) {
-				newStr = newStr + loopChar.toLowerCase();
+		if (str != "") {
+			for (var i = 0 ; i < str.length; i++) {
+				var loopChar = str[i];
+				if (loopChar === loopChar.toLowerCase()) {
+					newStr = newStr + loopChar.toUpperCase();
+				} else if (loopChar === loopChar.toUpperCase()) {
+					newStr = newStr + loopChar.toLowerCase();
+				};
+				newStr = newStr.replace( /[Aa]/g, "#" );
 			};
-			newStr = newStr.replace( /[Aa]/g, "#" );
+			return newStr;
+		} else {
+			throw new Error("Skriv in en giltig textsträng.");
 		};
-
-		return newStr;
-
-
-
-
 
 	};
 	// ------------------------------------------------------------------------------
