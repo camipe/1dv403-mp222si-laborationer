@@ -20,9 +20,7 @@ window.onload = function(){
 			} else if (loopChar === loopChar.toUpperCase()) {
 				newStr = newStr + loopChar.toLowerCase();
 			};
-			// if (loopChar === "a" || "A") {
-			// 	newStr = newStr + "#";
-			// };
+			newStr = newStr.replace( /[Aa]/g, "#" );
 		};
 
 		return newStr;
