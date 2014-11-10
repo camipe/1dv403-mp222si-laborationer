@@ -11,13 +11,18 @@ window.onload = function(){
 			throw new Error("Fel! Ange ett datum i formatet ÅÅÅÅ-MM-DD.")
 		};
 
-		 var birthday = new Date(date);
-		 console.log(birthday);
+		// Date variables
+		var today = new Date(); // Todays date
+		var birthday = new Date(date); // Date the user was born
+		birthday.setFullYear(today.getFullYear()); // Setting the year to current year
 
-		 var today = new Date();
-		 console.log(today)
+		// If the users already happend, add 1 to year
+		if (birthday < today) {
+			birthday.setFullYear(today.getFullYear() + 1);
+		};
 
-
+		var sum = (birthday - today);
+		console.log(sum / (1000 * 60 * 60 * 24));
 
 		return 1; // Test
 
