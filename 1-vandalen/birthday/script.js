@@ -6,7 +6,7 @@ window.onload = function(){
 	var birthday = function(date){
 
 		// Check if date is in a valid format
-		var dateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/; //Regex for date format YYYY-MM-DD
+		var dateFormat = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/; //Regex for date format YYYY-MM-DD
 		if (!dateFormat.test(date)) {
 			throw new Error("Fel! Ange ett datum i formatet ÅÅÅÅ-MM-DD.")
 		};
@@ -15,6 +15,9 @@ window.onload = function(){
 		 console.log(birthday);
 
 		 var today = new Date();
+		 console.log(today)
+
+
 
 		return 1; // Test
 
