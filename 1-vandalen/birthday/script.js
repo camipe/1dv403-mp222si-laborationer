@@ -11,6 +11,12 @@ window.onload = function(){
 			throw new Error("Fel! Ange ett datum i formatet ÅÅÅÅ-MM-DD.")
 		};
 
+		 var birthday = new Date(date);
+		 console.log(birthday);
+
+		 var today = new Date();
+
+		return 1; // Test
 
 
 
