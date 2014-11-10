@@ -16,19 +16,17 @@ window.onload = function(){
 		var birthday = new Date(date); // Date the user was born
 		birthday.setFullYear(today.getFullYear()); // Setting the year to current year
 
-		// If the users already happend, add 1 to year
+		// If the users birthday already happend, add 1 to year
 		if (birthday < today) {
 			birthday.setFullYear(today.getFullYear() + 1);
 		};
 
-		var sum = (birthday - today);
-		console.log(sum / (1000 * 60 * 60 * 24));
+		// Calculate number of days to birthday
+		var daysToBirthday = (birthday - today) / (1000 * 60 * 60 * 24);
 
-		return 1; // Test
-
-
-
+		return Math.floor(daysToBirthday);
 	};
+
 	// ------------------------------------------------------------------------------
 
 
