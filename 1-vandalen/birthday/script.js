@@ -23,8 +23,13 @@ window.onload = function(){
 
 		// Calculate number of days to birthday
 		var daysToBirthday = (birthday - today) / (1000 * 60 * 60 * 24);
+		daysToBirthday = Math.ceil(daysToBirthday)
 
-		return Math.floor(daysToBirthday);
+		if (daysToBirthday = 365) {
+			return 0;
+		};
+
+		return daysToBirthday;
 	};
 
 	// ------------------------------------------------------------------------------
