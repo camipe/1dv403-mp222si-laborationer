@@ -19,6 +19,9 @@ var makePerson = function(persArr){
     return obj.age;
   });
 
+  result.minAge = ages.reduce(function(a, b) {return Math.min(a,b)});
+
+
   // Add Names to result object as a string
   result.names = sortedNames.join(", ");
 
