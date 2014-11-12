@@ -5,6 +5,7 @@ var makePerson = function(persArr){
   // Declaring variables
   var result = {};
   var ages = [];
+  var agesTotal = 0;
   var names = [];
   var sortedNames = "";
 
@@ -19,8 +20,11 @@ var makePerson = function(persArr){
     return obj.age;
   });
 
-  result.minAge = ages.reduce(function(a, b) {return Math.min(a,b)});
+  agesTotal = ages.reduce(function(a, b) {return a + b});
 
+  result.minAge = ages.reduce(function(a, b) {return Math.min(a,b)});
+  result.maxAge = ages.reduce(function(a, b) {return Math.max(a,b)});
+  result.averageAge =  Math.round(agesTotal / ages.length);
 
   // Add Names to result object as a string
   result.names = sortedNames.join(", ");
