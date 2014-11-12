@@ -16,17 +16,19 @@ var makePerson = function(persArr){
   // Sorts the names alphabetically
   sortedNames = names.sort(function(a,b){return a.localeCompare(b)});
 
+  // Returns an array with all ages from the array persArr
   ages = persArr.map(function(obj) {
     return obj.age;
   });
-
+  // Adds all ages together
   agesTotal = ages.reduce(function(a, b) {return a + b});
 
+  // Asign the different age properties to result-object
   result.minAge = ages.reduce(function(a, b) {return Math.min(a,b)});
   result.maxAge = ages.reduce(function(a, b) {return Math.max(a,b)});
   result.averageAge =  Math.round(agesTotal / ages.length);
 
-  // Add Names to result object as a string
+  // Add names to result object as a string
   result.names = sortedNames.join(", ");
 
   return result;
