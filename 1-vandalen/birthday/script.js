@@ -15,19 +15,21 @@ window.onload = function(){
 		var today = new Date(); // Todays date
 		var birthday = new Date(date); // Date the user was born
 		birthday.setFullYear(today.getFullYear()); // Setting the year to current year
+		today.setHours(0);
+
 
 		// If the users birthday already happend, add 1 to year
 		if (birthday < today) {
 			birthday.setFullYear(today.getFullYear() + 1);
 		};
-
+		today.setHours
 		// Calculate number of days to birthday
 		var daysToBirthday = (birthday - today) / (1000 * 60 * 60 * 24);
-		daysToBirthday = Math.ceil(daysToBirthday)
+		daysToBirthday = Math.floor(daysToBirthday);
 
-		if (daysToBirthday = 365) {
-			return 0;
-		};
+		// if (daysToBirthday = 365) {
+		// 	return 0;
+		// };
 
 		return daysToBirthday;
 	};
