@@ -11,14 +11,22 @@ var makePerson = function(persArr){
 
   // Returns an array of all the names form the array persArr
   names = persArr.map(function(obj) {
-    return obj.name;
+    if (typeof obj.name === "string") {
+      return obj.name;
+    } else {
+      console.log("Felaktigt värde, " + obj.name + " är ingen sträng!");
+    };
   });
   // Sorts the names alphabetically
   sortedNames = names.sort(function(a,b){return a.localeCompare(b)});
 
   // Returns an array with all ages from the array persArr
   ages = persArr.map(function(obj) {
-    return obj.age;
+    if (!isNaN(obj.age)) {
+      return obj.age;
+    } else {
+      console.log("Felaktigt värde, " + obj.age + " är inget heltal!");
+    };
   });
   // Adds all ages together
   agesTotal = ages.reduce(function(a, b) {return a + b});
@@ -35,7 +43,7 @@ var makePerson = function(persArr){
 };
 
 
- var data = [{name: "John Häggerud", age: 37}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}];
+ var data = [{name: 1928349823578923, age: "hej"}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}];
 
  var result = makePerson(data);
 
