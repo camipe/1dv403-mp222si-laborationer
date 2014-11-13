@@ -43,9 +43,9 @@ var makePerson = function(persArr){
 };
 
 
- var data = [{name: 1928349823578923, age: "hej"}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}];
+ // var data = [{name: 1928349823578923, age: "hej"}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}];
 
- var result = makePerson(data);
+ // var result = makePerson(data);
 
- console.log(result);
+ // console.log(result);
 
