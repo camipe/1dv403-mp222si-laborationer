@@ -7,7 +7,9 @@ window.onload = function(){
 		return Math.floor( Math.random() * (max-min)+1 )+min;
 	}
 	// Deklarerar variablar
-	var secret = randomizeNumber(1, 100);
+	var min = 1;
+	var max = 100
+	var secret = randomizeNumber(min, max);
 	var guessCount = 0;
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
@@ -16,10 +18,10 @@ window.onload = function(){
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 		guessCount += 1;
 
-		if (number >= 1 && number <= 100) {
-			if (number < secret) {				
+		if (number >= min && number <= max) {
+			if (number < secret) {
 				return [false, "Det hemliga talet är högre!"];
-			} else if (number > secret) {				
+			} else if (number > secret) {
 				return [false, "Det hemliga talet är lägre!"];
 			} else {
 				return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + guessCount + " gissningar för att hitta det."];
