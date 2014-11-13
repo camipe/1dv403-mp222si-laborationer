@@ -27,10 +27,6 @@ window.onload = function(){
 		var daysToBirthday = (birthday - today) / (1000 * 60 * 60 * 24);
 		daysToBirthday = Math.floor(daysToBirthday);
 
-		// if (daysToBirthday = 365) {
-		// 	return 0;
-		// };
-
 		return daysToBirthday;
 	};
 
