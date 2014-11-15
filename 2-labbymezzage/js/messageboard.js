@@ -1,6 +1,11 @@
 "use strict";
 
-window.onload = function(){
-alert("Test");
+var Messageboard = {
+
+  init: function() {
+    console.log("Test");
+  }
 
 };
+
+window.onload = Messageboard.init;
