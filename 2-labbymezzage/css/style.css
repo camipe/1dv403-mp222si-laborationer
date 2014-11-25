@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: ivory;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.inputArea {
+  border-radius: 20px;
+  background: darkgoldenrod;
+}
+textarea {
+  resize: none;
+  width: 90%;
+  margin:25px 4% 10px;
+
+}
+
+button {
+  padding: 10px;
+  margin: 0 4% 30px;
+}
