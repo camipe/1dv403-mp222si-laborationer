@@ -18,7 +18,9 @@ function Message(message, date) {
 }
 
 Message.prototype.toString = function() {
-  return this.getText() + " (" + this.getDate() + ") ";
+  return this.getText() + " (" + this.getDate() + ")";
 }
 
-Message.prototype.getHTMLText = "Not implemented yet";
+Message.prototype.getHTMLText = function() {
+  return this.getText().replace(/\n/g, "<br>")
+};
