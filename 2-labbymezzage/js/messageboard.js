@@ -33,6 +33,7 @@ var Messageboard = {
   renderMessage: function(messageID) {
     var div = document.createElement("div");
     var text = document.createElement("p");
+    var timeText = document.createElement("p");
 
     div.className = "message";
     messageArea.appendChild(div);
@@ -40,6 +41,8 @@ var Messageboard = {
     text.innerHTML = Messageboard.messages[messageID].getHTMLText();
     div.appendChild(text);
 
+    timeText.innerHTML = Messageboard.messages[messageID].getDate();
+    div.appendChild(timeText);
   }
 
 };
