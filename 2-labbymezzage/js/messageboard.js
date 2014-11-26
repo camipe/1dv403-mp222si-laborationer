@@ -25,7 +25,7 @@ var Messageboard = {
     Messageboard.messageArea.innerHTML = "";
 
     var trackMessages = document.createElement("p");
-    trackMessages.innerHTML = Messageboard.messages.length;
+    trackMessages.innerHTML = "Antal meddelanden: " + Messageboard.messages.length;
     Messageboard.messageArea.appendChild(trackMessages);
 
     // Render each message in array
@@ -38,12 +38,18 @@ var Messageboard = {
     var div = document.createElement("div");
     var text = document.createElement("p");
     var timeText = document.createElement("p");
+    var deleteMessage = document.createElement("a");
+    var deleteMessageImg = document.createElement("img");
 
     div.className = "message";
     Messageboard.messageArea.appendChild(div);
 
     text.innerHTML = Messageboard.messages[messageID].getHTMLText();
     div.appendChild(text);
+
+    deleteMessageImg.src = "img/close33.png"
+    deleteMessage.appendChild(deleteMessageImg);
+    div.appendChild(deleteMessage);
 
     timeText.innerHTML = Messageboard.messages[messageID].getDate().toLocaleTimeString();
     div.appendChild(timeText);
