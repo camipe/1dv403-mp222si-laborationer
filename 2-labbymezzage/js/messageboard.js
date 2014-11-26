@@ -42,17 +42,27 @@ var Messageboard = {
     var deleteMessageImg = document.createElement("img");
 
     div.className = "message";
+    div.id = messageID;
     Messageboard.messageArea.appendChild(div);
 
     text.innerHTML = Messageboard.messages[messageID].getHTMLText();
     div.appendChild(text);
 
     deleteMessageImg.src = "img/close33.png"
+    deleteMessage.href = "#"
     deleteMessage.appendChild(deleteMessageImg);
     div.appendChild(deleteMessage);
 
     timeText.innerHTML = Messageboard.messages[messageID].getDate().toLocaleTimeString();
     div.appendChild(timeText);
+
+    deleteMessage.onclick = Messageboard.removeMessage;
+  },
+
+  removeMessage: function() {
+    Messageboard.messages.splice(this.parentNode.id, 1 );
+    Messageboard.renderMessages();
+
   }
 
 };
