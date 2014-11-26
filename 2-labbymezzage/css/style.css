@@ -1,28 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
+
 html {
   box-sizing: border-box;
 }
 
 body {
-  background: ivory;
+  background: whitesmoke;
+  font-family: 'PT Sans', sans-serif;
+  line-height: 1.4em;
+  color: #404040;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 4.2em;
+  padding: 10px 0 10px;
 }
 
 .wrapper {
   margin: 0 auto;
-  width: 40%;
+  max-width: 500px;
 }
 
-.inputArea {
-  border-radius: 20px;
-  background: darkgoldenrod;
+textarea, button {
+  font-family: inherit;
 }
+
 textarea {
+  padding: 10px;
   resize: none;
-  width: 90%;
-  margin:25px 4% 10px;
+  width: 85%;
+  margin:25px 15px 10px;
+  font-size: 1.0em;
 
 }
 
 button {
-  padding: 10px;
-  margin: 0 4% 30px;
+  background: #8B0000;
+  color: #eee;
+  border: none;
+  padding: 8px 15px;
+  margin: 0 30px 30px;
+  font-size: 0.9em;
 }
+
+#tracker{
+  border-bottom: 2px solid #8B0000;
+}
+
+p {
+  margin: 0 15px;
+  word-break: break-all;
+}
+
+a {
+  margin: 0 0 0 15px;
+}
+.message {
+  position: relative;
+  border-bottom: 2px solid #8B0000;
+}
+
+
+.message p {
+  width: 95%;
+  padding: 1.2em 0 ;
+
+}
+.timetext {
+  font-size: 0.7em;
+  font-style: italic;
+}
+

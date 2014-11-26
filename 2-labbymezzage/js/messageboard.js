@@ -32,6 +32,7 @@ var Messageboard = {
     Messageboard.messageArea.innerHTML = "";
 
     var trackMessages = document.createElement("p");
+    trackMessages.id = "tracker"
     trackMessages.innerHTML = "Antal meddelanden: " + Messageboard.messages.length;
     Messageboard.messageArea.appendChild(trackMessages);
 
@@ -73,6 +74,7 @@ var Messageboard = {
 
     // Insert timestamp
     timeText.innerHTML = Messageboard.messages[messageID].getDate().toLocaleTimeString();
+    timeText.className = "timetext"
     div.appendChild(timeText);
 
     // Set onclick behaviour for buttons
