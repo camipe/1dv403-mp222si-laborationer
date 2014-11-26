@@ -82,8 +82,11 @@ var Messageboard = {
 
   // Function to remove messages
   removeMessage: function() {
-    Messageboard.messages.splice(this.parentNode.id, 1);
-    Messageboard.renderMessages();
+    if (window.confirm("Är du säker på att du vill ta bort meddelandet?")) {
+      Messageboard.messages.splice(this.parentNode.id, 1);
+      Messageboard.renderMessages();
+    };
+
     return false;
   },
 
