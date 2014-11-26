@@ -12,6 +12,8 @@ var Messageboard = {
 
   },
 
+  numberOfMessages: 0,
+
   // Create new message object and push to array
   newMessage: function() {
     var mess = new Message(input.value, new Date());
@@ -41,7 +43,7 @@ var Messageboard = {
     text.innerHTML = Messageboard.messages[messageID].getHTMLText();
     div.appendChild(text);
 
-    timeText.innerHTML = Messageboard.messages[messageID].getDate();
+    timeText.innerHTML = Messageboard.messages[messageID].getDate().toLocaleTimeString();
     div.appendChild(timeText);
   }
 
