@@ -3,14 +3,21 @@
 var Messageboard = {
 
   messages: [],
-
-  init: function() {
-    Messageboard.send.onclick = Messageboard.newMessage;
-  },
-
   messageArea: document.querySelector(".messageArea"),
   input: document.querySelector("#textInput"),
   send: document.querySelector("#send"),
+
+  init: function() {
+    Messageboard.send.onclick = Messageboard.newMessage;
+
+    // Enter = Post message, Shift+Enter = New line
+    Messageboard.input.onkeypress = function(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        Messageboard.newMessage();
+      };
+    };
+  },
 
   // Create new message object and push to array
   newMessage: function() {
@@ -68,7 +75,7 @@ var Messageboard = {
   },
 
   removeMessage: function() {
-    Messageboard.messages.splice(this.parentNode.id, 1 );
+    Messageboard.messages.splice(this.parentNode.id, 1);
     Messageboard.renderMessages();
     return false;
   },
