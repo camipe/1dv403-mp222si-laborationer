@@ -11,7 +11,6 @@ var Messageboard = {
   messageArea: document.querySelector(".messageArea"),
   input: document.querySelector("#textInput"),
   send: document.querySelector("#send"),
-  numberOfMessages: 0,
 
   // Create new message object and push to array
   newMessage: function() {
@@ -24,6 +23,10 @@ var Messageboard = {
   renderMessages: function() {
     // Clear message area
     Messageboard.messageArea.innerHTML = "";
+
+    var trackMessages = document.createElement("p");
+    trackMessages.innerHTML = Messageboard.messages.length;
+    Messageboard.messageArea.appendChild(trackMessages);
 
     // Render each message in array
     for (var i = 0; i < Messageboard.messages.length; i++) {
