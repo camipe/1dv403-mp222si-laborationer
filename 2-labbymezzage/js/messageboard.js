@@ -21,6 +21,9 @@ var Messageboard = {
 
   // Create new message object and push to array
   newMessage: function() {
+    if (Messageboard.input.value === "" || /^\s+$/.test(Messageboard.input.value)) {
+      throw new Error("Textsträngen är inte giltig.")
+    };
     var mess = new Message(Messageboard.input.value, new Date());
     Messageboard.messages.push(mess);
     Messageboard.renderMessages();
