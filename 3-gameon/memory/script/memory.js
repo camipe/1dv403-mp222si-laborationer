@@ -28,8 +28,13 @@ var Memory = {
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
         var cell = document.createElement("td");
-        var cellText = document.createTextNode("cell in row "+i+", column "+j);
-        cell.appendChild(cellText);
+        var brick = document.createElement("a");
+        var brickImg = document.createElement("img");
+
+        brickImg.src = "pics/0.png";
+        brick.href = "#";
+        brick.appendChild(brickImg);
+        cell.appendChild(brick);
         row.appendChild(cell);
       }
 
@@ -41,5 +46,7 @@ var Memory = {
 
   }
 };
+
+
 
 window.onload = Memory.init;
