@@ -1,0 +1,10 @@
+Funktioner som behövs:
+Memory-objektet
+- Egenskap som lagrar spelplanens ordning
+- Funktion som skriver ut spelplanen
+- Funktion som körs när man klickar på en bricka och vänder en bricka
+- Egenskap som håller reda på antalet försök
+
+Brick-objekt
+-Egenskap med ett sorts ID
+-Egenskap som håller koll på om det är aktivt eller inaktivt (Nervänt eller uppvänt)
