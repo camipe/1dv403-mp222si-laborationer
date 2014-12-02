@@ -7,6 +7,8 @@ var Memory = {
 
   brickOrder: [],
 
+  activeBricks: [],
+
   init: function() {
     Memory.brickOrder = RandomGenerator.getPictureArray(Memory.gameRows, Memory.gameCols);
     console.log(Memory.brickOrder.length);
@@ -40,7 +42,7 @@ var Memory = {
         row.appendChild(cell);
 
         brickCounter += 1;
-        brick.addEventListener("click", Memory.turnBrick)
+        brick.addEventListener("click", Memory.brickClick)
       }
 
       table.appendChild(row);
@@ -49,14 +51,43 @@ var Memory = {
     board.appendChild(table);
   },
 
-  turnBrick: function(e) {
-    console.log("hej")
-    console.log(this)
-    console.log(this.parentNode)
+  brickClick: function(e) {
+    e.preventDefault();
+    if (this.classList.contains("active")) {
+     return;
+    };
+    if (Memory.activeBricks.length >= 2) {
+      return;
+    };
 
-    var img = this.querySelector("img")
-    img.src = "pics/" + Memory.brickOrder[this.id] + ".png";
-  }
+    console.log("Clicked")
+    Memory.turnBrick(this);
+
+    if (Memory.activeBricks.length >= 2) {
+        window.setTimeout(Memory.brickDefault, 1000);
+     };
+
+  },
+
+  turnBrick: function(e) {
+    var img = e.querySelector("img")
+    console.log("Turn")
+    img.src = "pics/" + Memory.brickOrder[e.id] + ".png";
+    e.classList.add("active");
+    Memory.activeBricks.push(e);
+    console.log(Memory.activeBricks);
+  },
+
+  brickDefault: function(e) {
+    console.log("Vänd tillbaka")
+    var arrayLength = Memory.activeBricks.length;
+    for (var i = 0; i < arrayLength; i++) {
+      var element = Memory.activeBricks.pop();
+      var img = element.querySelector("img")
+      img.src = "pics/0.png";
+      element.classList.toggle("active");
+    };
+  },
 };
 
 
