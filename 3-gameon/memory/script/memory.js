@@ -53,6 +53,9 @@ var Memory = {
     console.log("hej")
     console.log(this)
     console.log(this.parentNode)
+
+    var img = this.querySelector("img")
+    img.src = "pics/" + Memory.brickOrder[this.id] + ".png";
   }
 };
 
