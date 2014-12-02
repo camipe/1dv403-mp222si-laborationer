@@ -4,6 +4,8 @@ var Memory = {
 
   gameRows: 2,
   gameCols: 2,
+  score: 0,
+  tries: 0,
 
   brickOrder: [],
 
@@ -11,7 +13,6 @@ var Memory = {
 
   init: function() {
     Memory.brickOrder = RandomGenerator.getPictureArray(Memory.gameRows, Memory.gameCols);
-    console.log(Memory.brickOrder.length);
     Memory.generateBoard(Memory.brickOrder);
   },
 
@@ -63,10 +64,35 @@ var Memory = {
     console.log("Clicked")
     Memory.turnBrick(this);
 
+    console.log(Memory.areBricksEqual())
+
+    if (Memory.areBricksEqual()) {
+      Memory.score += 1;
+    } else {
+      Memory.tries += 1;
+    }
+
     if (Memory.activeBricks.length >= 2) {
         window.setTimeout(Memory.brickDefault, 1000);
      };
 
+  },
+
+  areBricksEqual: function() {
+    if (Memory.activeBricks.length === 2) {
+      var ab1 = Memory.activeBricks[0].id
+      var ab2 = Memory.activeBricks[1].id
+
+      console.log("Bricka 1: ", ab1)
+      console.log("Bricka 2: ", ab2)
+
+      if (Memory.brickOrder[ab1] === Memory.brickOrder[ab2]) {
+          return true;
+        };
+
+      } else {
+        return false;
+      }
   },
 
   turnBrick: function(e) {
