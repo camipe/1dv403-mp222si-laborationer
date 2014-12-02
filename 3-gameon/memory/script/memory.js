@@ -66,6 +66,7 @@ var Memory = {
     Memory.turnBrick(this);
 
     if (Memory.activeBricks.length === 2) {
+      Memory.tries += 1;
       if (Memory.areBricksEqual()) {
         Memory.score += 1;
         var arrayLength = Memory.activeBricks.length;
@@ -73,14 +74,15 @@ var Memory = {
           var element = Memory.activeBricks.pop();
           // element.classList.toggle("active");
         };
-      } else {
-      Memory.tries += 1;
       };
     };
+
     if (Memory.activeBricks.length >= 2) {
       window.setTimeout(Memory.brickDefault, 1000);
-    };
 
+    };
+    console.log("Score: ", Memory.score);
+    console.log("Tries: ", Memory.tries);
   },
 
   areBricksEqual: function() {
