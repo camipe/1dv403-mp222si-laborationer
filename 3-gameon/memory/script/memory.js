@@ -54,27 +54,32 @@ var Memory = {
 
   brickClick: function(e) {
     e.preventDefault();
-    if (this.classList.contains("active")) {
-     return;
-    };
+
+    // if two or more bricks are active exit function
     if (Memory.activeBricks.length >= 2) {
       return;
     };
 
     console.log("Clicked")
+
+    // Turn the clicked brick
     Memory.turnBrick(this);
 
-    console.log(Memory.areBricksEqual())
-
-    if (Memory.areBricksEqual()) {
-      Memory.score += 1;
-    } else {
+    if (Memory.activeBricks.length === 2) {
+      if (Memory.areBricksEqual()) {
+        Memory.score += 1;
+        var arrayLength = Memory.activeBricks.length;
+        for (var i = 0; i < arrayLength; i++) {
+          var element = Memory.activeBricks.pop();
+          // element.classList.toggle("active");
+        };
+      } else {
       Memory.tries += 1;
-    }
-
+      };
+    };
     if (Memory.activeBricks.length >= 2) {
-        window.setTimeout(Memory.brickDefault, 1000);
-     };
+      window.setTimeout(Memory.brickDefault, 1000);
+    };
 
   },
 
@@ -83,8 +88,8 @@ var Memory = {
       var ab1 = Memory.activeBricks[0].id
       var ab2 = Memory.activeBricks[1].id
 
-      console.log("Bricka 1: ", ab1)
-      console.log("Bricka 2: ", ab2)
+      // console.log("Bricka 1: ", ab1)
+      // console.log("Bricka 2: ", ab2)
 
       if (Memory.brickOrder[ab1] === Memory.brickOrder[ab2]) {
           return true;
@@ -99,8 +104,9 @@ var Memory = {
     var img = e.querySelector("img")
     console.log("Turn")
     img.src = "pics/" + Memory.brickOrder[e.id] + ".png";
-    e.classList.add("active");
+    // e.classList.add("active");
     Memory.activeBricks.push(e);
+    e.removeEventListener('click', Memory.brickClick);
     console.log(Memory.activeBricks);
   },
 
@@ -111,7 +117,8 @@ var Memory = {
       var element = Memory.activeBricks.pop();
       var img = element.querySelector("img")
       img.src = "pics/0.png";
-      element.classList.toggle("active");
+      // element.classList.toggle("active");
+      element.addEventListener("click", Memory.brickClick)
     };
   },
 };
