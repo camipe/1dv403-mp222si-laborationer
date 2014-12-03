@@ -2,8 +2,8 @@
 
 var Memory = {
 
-  gameRows: 2,
-  gameCols: 2,
+  gameRows: 4,
+  gameCols: 4,
   score: 0,
   tries: 0,
 
