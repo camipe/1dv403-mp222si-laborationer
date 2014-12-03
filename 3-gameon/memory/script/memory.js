@@ -83,6 +83,10 @@ var Memory = {
     };
     console.log("Score: ", Memory.score);
     console.log("Tries: ", Memory.tries);
+
+    if (Memory.score === (Memory.gameCols * Memory.gameRows) / 2 ) {
+      Memory.printResult();
+    };
   },
 
   areBricksEqual: function() {
@@ -123,8 +127,18 @@ var Memory = {
       element.addEventListener("click", Memory.brickClick)
     };
   },
+
+  printResult: function() {
+    var board = document.getElementById("board");
+    var h2 = document.createElement("h2");
+    var text = document.createElement("p");
+
+    h2.innerHTML = "Grattis!"
+    text.innerHTML = "Du klarade det på " + Memory.tries + " försök!"
+
+    board.appendChild(h2);
+    board.appendChild(text);
+  },
 };
-
-
 
 window.onload = Memory.init;
