@@ -9,7 +9,7 @@ var app = {
     startButton.addEventListener("click", app.getQuestion.bind(null, app.startURL));
 
     var answer = {"answer" : "2"};
-
+    app.sendAnswer(answer);
   },
 
   getQuestion: function(url) {
@@ -24,7 +24,7 @@ var app = {
     xhr.send();
   },
 
-  sendAnswer: function() {
+  sendAnswer: function(answer) {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function(){
@@ -33,9 +33,9 @@ var app = {
       };
     };
 
-    xhr2.open('POST', 'http://vhost3.lnu.se:20080/answer/1', true);
-    xhr2.setRequestHeader('Content-Type', 'application/json');
-    xhr2.send(JSON.stringify(answer));
+    xhr.open('POST', 'http://vhost3.lnu.se:20080/answer/1', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(answer));
   }
 
 };
