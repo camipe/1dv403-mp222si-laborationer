@@ -3,7 +3,7 @@
 var Memory = {
 
   // Declaring 'global' variables
-  gameRows: 4,
+  gameRows: 3,
   gameCols: 4,
   score: 0,
   tries: 0,
