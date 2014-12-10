@@ -13,7 +13,7 @@ var app = {
     var answer = {"answer" : "2"};
     app.sendAnswer(answer);
 
-    //app.printPage()
+
 
   },
 
@@ -27,18 +27,20 @@ var app = {
     };
     xhr.open('GET', url, true);
     xhr.send();
+
+
   },
 
   sendAnswer: function(answer) {
     var xhr = new XMLHttpRequest();
-
+    var URL = app.questions[app.questions.length - 1].nextURL;
     xhr.onreadystatechange = function(){
       if (xhr.readyState === 4) {
-        console.log(xhr.responseText);
+        app.saveResponse(xhr.responseText, app.answers);
       };
     };
 
-    xhr.open('POST', 'http://vhost3.lnu.se:20080/answer/1', true);
+    xhr.open('POST', URL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(answer));
   },
@@ -47,11 +49,12 @@ var app = {
     var div = document.querySelector(".quiz");
     var text = document.createElement("p");
     var button = document.createElement("button");
-
+    var arrItem = app.questions[app.questions.length - 1];
+    console.log("test")
     div.innerHTML = "";
 
-    text.innerHTML = "hej";
-    button.innerHTML = "Skicka"
+    text.innerHTML = arrItem.question;
+    button.innerHTML = "Skicka";
     button.id = "send";
 
     div.appendChild(text);
@@ -62,7 +65,7 @@ var app = {
   saveResponse: function(response, targetArr) {
     var responseObj = JSON.parse(response);
     var arr = targetArr;
-    console.log(arr);
+
     arr.push(responseObj);
   },
 
