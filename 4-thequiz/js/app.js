@@ -47,8 +47,13 @@ var app = {
 
         if (xhr.status === 200) {
           app.saveResponse(xhr.responseText, app.responses);
-          app.getQuestion(app.responses[app.responses.length - 1].nextURL)
-          app.printPage();
+
+          if (app.endOfGame) {
+            app.printResult();
+          } else {
+            app.getQuestion(app.responses[app.responses.length - 1].nextURL)
+            app.printPage();
+          }
         };
 
       };
@@ -68,27 +73,30 @@ var app = {
 
     div.innerHTML = "";
 
-    if (app.endOfGame === true) {
-      text.innerHTML = "Grattis du klarade det på " + app.tries + " försök!"
-    } else {
-      console.log(app.responses[app.responses.length - 1])
-      text.innerHTML = app.responses[app.responses.length - 1].question;
-      input.id = "textinput";
-      button.innerHTML = "Skicka";
-      button.id = "sendButton";
 
-      button.addEventListener("click", function() {
-        app.sendAnswer(input.value);
-      });
-      div.appendChild(input);
-      div.appendChild(button);
-    }
+    text.innerHTML = app.responses[app.responses.length - 1].question;
+    input.id = "textinput";
+    button.innerHTML = "Skicka";
+    button.id = "sendButton";
+
+    button.addEventListener("click", function() {
+      app.sendAnswer(input.value);
+    });
+
+    div.appendChild(input);
+    div.appendChild(button);
     div.appendChild(text);
 
   },
 
   printResult: function() {
+    var div = document.querySelector(".quiz");
+    var text = document.createElement("p");
 
+    div.innerHTML = "";
+
+    text.innerHTML = "Grattis du klarade det på " + app.tries + " försök!";
+    div.appendChild(text);
   },
 
   saveResponse: function(response, targetArr) {
