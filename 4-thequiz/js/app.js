@@ -3,6 +3,8 @@
 var app = {
 
   startURL: "http://vhost3.lnu.se:20080/question/1",
+  questions: [],
+  answers: [],
 
   init: function() {
     var startButton = document.getElementById("start");
@@ -10,6 +12,9 @@ var app = {
 
     var answer = {"answer" : "2"};
     app.sendAnswer(answer);
+
+    //app.printPage()
+
   },
 
   getQuestion: function(url) {
@@ -17,7 +22,7 @@ var app = {
 
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
-        console.log(xhr.responseText);
+        app.saveResponse(xhr.responseText, app.questions);
       };
     };
     xhr.open('GET', url, true);
@@ -36,7 +41,30 @@ var app = {
     xhr.open('POST', 'http://vhost3.lnu.se:20080/answer/1', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(answer));
-  }
+  },
+
+  printPage: function() {
+    var div = document.querySelector(".quiz");
+    var text = document.createElement("p");
+    var button = document.createElement("button");
+
+    div.innerHTML = "";
+
+    text.innerHTML = "hej";
+    button.innerHTML = "Skicka"
+    button.id = "send";
+
+    div.appendChild(text);
+    div.appendChild(button);
+
+  },
+
+  saveResponse: function(response, targetArr) {
+    var responseObj = JSON.parse(response);
+    var arr = targetArr;
+    console.log(arr);
+    arr.push(responseObj);
+  },
 
 };
 
