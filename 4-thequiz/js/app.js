@@ -61,7 +61,6 @@ var app = {
           } else {
 
             app.getQuestion(app.responses[app.responses.length - 1].nextURL)
-            app.printPage();
 
           }
         } else {
