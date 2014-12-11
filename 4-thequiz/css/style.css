@@ -1,0 +1,22 @@
+.wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+body {
+  font-size: 1.2em;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+}
+
+p {
+  margin: 0.5em 0;
+}
