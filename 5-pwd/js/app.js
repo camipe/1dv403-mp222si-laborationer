@@ -1,5 +1,5 @@
 "use strict";
 
 window.onload = function() {
-  alert("Test")
+  console.log("Test")
 };
