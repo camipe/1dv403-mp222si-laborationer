@@ -13,3 +13,13 @@ body {
 #menubar li {
   display: inline;
 }
+
+.window {
+  width: 350px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.window h3 {
+  background: snow;
+}
