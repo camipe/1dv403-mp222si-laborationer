@@ -1,12 +1,14 @@
 "use strict";
 
-// Klick på ikonen
-  // Skapa en "window"-div
-    // Stängningsknapp i hörnet
-      // När knappen klickas på så stängs fönstret
-  // Tolka JSON-obj
-  // Skapa bildgalleriet från informationen
-    // Om det tar tid ska en laddningsanimation visas
+// Kvar att göra:
+  // Snygga till menubar med ikon
+    // Byt ut texten i a-taggen mot en bild
+  // Snygga till topbaren ikoner för stäng och innan h-tagg
+  // Lägg till en footer i window
+    // Skapa en loading bar som kan visas i footern
+  // Snygga till bildgalleriet
+
+
 
 var app = {
 
@@ -44,6 +46,7 @@ var app = {
 
     $closeButton.click(function() {
       $window.remove();
+      app.isWindowOpen = false;
     })
   },
 
