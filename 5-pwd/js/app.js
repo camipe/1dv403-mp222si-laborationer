@@ -10,10 +10,12 @@
 
 var app = {
 
+  images: [],
+
   init: function() {
     console.log("Fungerar")
     app.openWindow();
-    app.getImages();
+    app.getImageInfo();
   },
 
   openWindow: function() {
@@ -30,21 +32,47 @@ var app = {
     $window.appendTo("#desktop");
   },
 
-  getImages: function() {
+  getImageInfo: function() {
     var $data = $.ajax({
       url: 'http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/',
       type: 'GET',
       success: function() {
-        //called when successful
+        // console.log($data.responseText)
+        var imgList = JSON.parse($data.responseText);
+
         console.log("Success")
-        console.log($data.responseText)
+        app.displayImages(imgList);
+
       },
       error: function(e) {
         console.log(e.message);
       }
     })
+  },
+
+  displayImages: function(array) {
+    var imgInfo;
+    var $link;
+    var $img;
+    var $appDiv = $(".appDiv")
+
+    for (var i = 0; i < array.length; i++) {
+      imgInfo = array[i];
+
+      $link = $('<a></a>');
+      $link.attr("href", imgInfo.URL);
+      $link.addClass("thumbNail");
 
 
+      $img = $('<img>')
+      $img.attr("src", imgInfo.thumbURL);
+      $img.attr("width", imgInfo.thumbWidth);
+      $img.attr("height", imgInfo.thumbHeight);
+
+
+      $img.appendTo($link);
+      $link.appendTo($appDiv);
+    };
   }
 };
 
