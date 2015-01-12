@@ -12,12 +12,18 @@ var app = {
 
   imageHeight: 0,
   imageWidth: 0,
+  isWindowOpen: false,
 
   init: function() {
 
     $( "#imgviewer" ).on("click", function (e){
       e.preventDefault()
-      app.openWindow();
+
+      if (app.isWindowOpen === false) {
+        app.openWindow();
+        app.isWindowOpen = true;
+      };
+
     });
   },
 
