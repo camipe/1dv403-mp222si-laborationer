@@ -18,7 +18,6 @@ var app = {
 
     $( "#imgviewer" ).on("click", function (e){
       e.preventDefault()
-
       if (app.isWindowOpen === false) {
         app.openWindow();
         app.isWindowOpen = true;
@@ -94,11 +93,16 @@ var app = {
       $link.addClass("thumbnail");
 
 
-      $img = $('<img>')
+      $img = $('<img>');
       $img.attr("src", imgInfo.thumbURL);
       $img.attr("width", imgInfo.thumbWidth);
       $img.attr("height", imgInfo.thumbHeight);
 
+      $link.click(function(e) {
+        var that = $(this);
+        e.preventDefault();
+        app.changeBackground(that);
+      });
 
       $img.appendTo($link);
       $link.appendTo($appDiv);
@@ -106,6 +110,11 @@ var app = {
       $(".thumbnail").css("height", (app.imageHeight + 4))
       $(".thumbnail").css("width", (app.imageWidth + 4))
     };
+  },
+
+  changeBackground: function(obj) {
+    var imgURL = obj.attr("href");
+    $("body").css("background", "url(" + imgURL + ")");
   }
 };
 
