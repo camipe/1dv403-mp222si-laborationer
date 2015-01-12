@@ -1,25 +1,46 @@
+/* General */
+
 body {
-  background: tomato;
+  background: url("img/symphony.png");
 }
 
+
+/* Window */
+
+.window {
+  width: 375px;
+  height: 500px;
+  border: 1px solid #DBDBDB;
+  background: white;
+}
+
+.window h2 {
+  font-size: 0.8em;
+}
+
+.topbar {
+  background: #F0F0F0;
+  position: relative;
+  padding: 5px;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  margin: 0;
+}
+
+/* Menubar */
 #menubar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: lightgreen;
+  background: #F0F0F0;
+  border-top: 1px solid #DBDBDB;
 }
 
 #menubar li {
   display: inline;
-}
-
-.window {
-  width: 350px;
-  height: 400px;
-  border: 1px solid black;
-}
-
-.window h3 {
-  background: snow;
 }

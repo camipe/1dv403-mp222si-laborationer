@@ -12,6 +12,10 @@ var app = {
 
   init: function() {
     console.log("Fungerar")
+  },
+
+  openWindow: function() {
+    var $window = $('<div class="window"></div>').appendTo("body");
   }
 }
 
