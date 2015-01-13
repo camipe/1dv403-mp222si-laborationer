@@ -1,10 +1,4 @@
 "use strict";
-
-// Kvar att göra:
-  // Snygga till topbaren ikoner för stäng och innan h-tagg
-  // Snygga till bildgalleriet
-
-
 var app = {
 
   imageHeight: 0,
@@ -36,7 +30,7 @@ var app = {
     $closeButton.appendTo($header);
 
     $('<img src="img/ajax-loader.gif" class="loading">'). appendTo($footer);
-    $('<span class="loading">Loading<span>').appendTo($footer);
+    $('<span class="loading">Loading</span>').appendTo($footer);
 
     $header.appendTo($window);
     $appDiv.appendTo($window);
@@ -51,8 +45,6 @@ var app = {
       app.isWindowOpen = false;
     })
   },
-
-  closeWindow: function() {},
 
   getImageInfo: function() {
     var $data = $.ajax({
@@ -115,8 +107,8 @@ var app = {
       $img.appendTo($link);
       $link.appendTo($appDiv);
 
-      $(".thumbnail").css("height", (app.imageHeight + 4))
-      $(".thumbnail").css("width", (app.imageWidth + 4))
+      $(".thumbnail").css("height", (app.imageHeight))
+      $(".thumbnail").css("width", (app.imageWidth))
     };
   },
 

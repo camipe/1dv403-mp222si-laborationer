@@ -1,9 +1,9 @@
 /* General */
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 
 body {
   background: url("img/symphony.png");
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 
@@ -19,9 +19,9 @@ body {
   background: white;
 }
 
-.window span {
+.topbar span {
   display: inline-block;
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-left: 43px;
   margin-top: 4px;
 
@@ -32,6 +32,8 @@ body {
   position: relative;
   padding: 5px;
   height: 6%;
+  border-bottom: 1px solid #DBDBDB;
+
 }
 
 .windowIcon{
@@ -49,17 +51,25 @@ body {
 }
 
 .appDiv {
-  margin: 0 auto;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 85%;
   overflow-y:auto;
+  background: whitesmoke;
+  text-align: center;
 }
 
 .thumbnail {
-  background: grey;
-  padding: 2px;
+  background: ;
+  padding: 4px;
+  margin-right: 6px;
+  margin-top: 6px;
   display: inline-block;
-  border: 1px solid white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
 }
 
 .thumbnail img {
@@ -72,10 +82,17 @@ body {
 }
 
 .footer {
-  height: 5%;
+
+  height: 34px;
   background: #F0F0F0;
 }
 
+.loading {
+  display: none;
+  margin-top: 5px;
+  margin-left: 8px;
+  font-size: 0.9em;
+}
 
 
 /* Menubar */
