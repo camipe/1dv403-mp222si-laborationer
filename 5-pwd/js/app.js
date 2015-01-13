@@ -1,13 +1,8 @@
 "use strict";
 
 // Kvar att göra:
-  // Snygga till menubar med ikon
-    // Byt ut texten i a-taggen mot en bild
   // Snygga till topbaren ikoner för stäng och innan h-tagg
-  // Lägg till en footer i window
-    // Skapa en loading bar som kan visas i footern
   // Snygga till bildgalleriet
-
 
 
 var app = {
@@ -32,10 +27,12 @@ var app = {
     var $window = $('<div class="window"></div>');
     var $header = $('<header class="topbar"></header>');
     var $appDiv = $('<div class="appDiv"></div>');
-    var $closeButton = $('<a href="#" class="close-button">X</a>');
+    var $closeButton = $('<a href="#" class="close-button"></a>');
     var $footer = $('<div class="footer"></div>');
 
-    $('<h2>ImageViewer</h2>').appendTo($header);
+    $('<img class="windowIcon"src="img/imgS.png">').appendTo($header);
+    $('<span>ImageViewer</span>').appendTo($header);
+    $('<img src="img/close.png">').appendTo($closeButton);
     $closeButton.appendTo($header);
 
     $('<img src="img/ajax-loader.gif" class="loading">'). appendTo($footer);
