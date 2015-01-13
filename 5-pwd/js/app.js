@@ -33,12 +33,17 @@ var app = {
     var $header = $('<header class="topbar"></header>');
     var $appDiv = $('<div class="appDiv"></div>');
     var $closeButton = $('<a href="#" class="close-button">X</a>');
+    var $footer = $('<div class="footer"></div>');
 
     $('<h2>ImageViewer</h2>').appendTo($header);
     $closeButton.appendTo($header);
 
+    $('<img src="img/ajax-loader.gif" class="loading">'). appendTo($footer);
+    $('<span class="loading">Loading<span>').appendTo($footer);
+
     $header.appendTo($window);
     $appDiv.appendTo($window);
+    $footer.appendTo($window);
 
     $window.appendTo("#desktop");
 
@@ -56,8 +61,11 @@ var app = {
     var $data = $.ajax({
       url: 'http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/',
       type: 'GET',
+      beforeSend: function(){
+       $('.loading').show();
+      },
       success: function() {
-        // console.log($data.responseText)
+        $('.loading').hide();
         var imgList = JSON.parse($data.responseText);
 
         app.getImgRes(imgList);

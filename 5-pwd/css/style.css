@@ -25,6 +25,7 @@ body {
   background: #F0F0F0;
   position: relative;
   padding: 5px;
+  height: 5%;
 }
 
 .close-button {
@@ -37,6 +38,8 @@ body {
 .appDiv {
   margin: 0 auto;
   width: 90%;
+  height: 90%;
+  overflow-y:auto;
 }
 
 .thumbnail {
@@ -50,9 +53,14 @@ body {
 
   display: block;
   margin: 2px auto;
-
-
 }
+
+.footer {
+  height: 5%;
+  background: #F0F0F0;
+}
+
+
 
 /* Menubar */
 #menubar {
