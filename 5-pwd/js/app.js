@@ -1,34 +1,39 @@
 "use strict";
 var app = {
 
+  // Global variables
   imageHeight: 0,
   imageWidth: 0,
   isWindowOpen: false,
 
+  // Runs on page load
   init: function() {
-
+    // Set a clickhandler on the menubar icon which opens the window
     $( "#imgviewer" ).on("click", function (e){
       e.preventDefault()
       if (app.isWindowOpen === false) {
         app.openWindow();
         app.isWindowOpen = true;
       };
-
     });
   },
 
+  // Method to open/render the window
   openWindow: function() {
+    // Creating elements
     var $window = $('<div class="window"></div>');
     var $header = $('<header class="topbar"></header>');
     var $appDiv = $('<div class="appDiv"></div>');
     var $closeButton = $('<a href="#" class="close-button"></a>');
     var $footer = $('<div class="footer"></div>');
 
+    // Window header
     $('<img class="windowIcon"src="img/imgS.png">').appendTo($header);
     $('<span>ImageViewer</span>').appendTo($header);
     $('<img src="img/close.png">').appendTo($closeButton);
     $closeButton.appendTo($header);
 
+    // Footer
     $('<img src="img/ajax-loader.gif" class="loading">'). appendTo($footer);
     $('<span class="loading">Loading</span>').appendTo($footer);
 
@@ -38,25 +43,29 @@ var app = {
 
     $window.appendTo("#desktop");
 
+    // Retriving images from server
     app.getImageInfo();
 
+    // Clickhandler to close window on closebutton
     $closeButton.click(function() {
       $window.remove();
       app.isWindowOpen = false;
     })
   },
 
+  // AJAX call to get the images from the server
   getImageInfo: function() {
     var $data = $.ajax({
       url: 'http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/',
       type: 'GET',
       beforeSend: function(){
-       $('.loading').show();
+       $('.loading').show(); // Show loading gif before sending request
       },
       success: function() {
-        $('.loading').hide();
+        $('.loading').hide(); // Hide loading gif on success
         var imgList = JSON.parse($data.responseText);
 
+        // Processing images and showing them on the page
         app.getImgRes(imgList);
         app.displayImages(imgList);
 
@@ -67,8 +76,8 @@ var app = {
     })
   },
 
+  // Loops through all images and checks the max width/height
   getImgRes: function(array) {
-
     for (var i = 0; i < array.length; i++) {
       if (app.imageHeight < array[i].thumbHeight) {
         app.imageHeight = array[i].thumbHeight;
@@ -78,7 +87,7 @@ var app = {
       };
     };
   },
-
+  // Loops through array of objects and appends all images to the page
   displayImages: function(array) {
     var imgInfo;
     var $link;
